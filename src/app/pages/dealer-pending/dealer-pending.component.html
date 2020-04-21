@@ -1,0 +1,61 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-heade text-center bg-warning text-white center">
+          <h4 class=" card-title">Dealer Pending </h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Dealer ID</th>
+                  <th>Dealer Name</th>
+                  <th>Sales Office Code</th>
+                  <th>Status</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pd of pendingData">
+                  <td>
+                   <div *ngIf="(pd.status=='REJECTED_DEALER' && username=='tse_mumbai')|| (pd.status=='REJECTED_TSM' && username=='tse_mumbai')|| (pd.status=='REJECTED_RHM' && username=='tse_mumbai')  else elseBlock">
+                 <a  (click)="getViewID(pd.dealerId,pd.status)" id="{{pd.dealerId}}" [routerLink]="['/registration-form']">{{pd.dealerId}}</a>
+                </div>
+                <ng-template #elseBlock> 
+                  <a  (click)="getViewID(pd.dealerId,pd.status)" id="{{pd.dealerId}}" [routerLink]="['/viewpage']" target="_blank">{{pd.dealerId}}</a>
+                </ng-template>
+                </td>
+                  <td>{{pd.dealerName}}</td>
+                  <td>{{pd.salesOffice}}</td>
+                 
+                  <td *ngIf="pd.status!='SUBMITTED' && pd.status!='PENDING_TSM' && pd.status!='REJECTED_RHM' && pd.status!='REJECTED_TSM' && pd.status!='PENDING_TSM'  && pd.status!='PENDING_RHM'">{{pd.status}}
+                     <!-- <div *ngIf="pd.status!='SUBMITTED' else elseBlock">{{pd.status}}</div>
+                    <ng-template #elseBlock>Pending by Dealer</ng-template>  -->
+                  </td>
+                  <td *ngIf="pd.status=='SUBMITTED'">Pending by Dealer
+                    <!-- <div *ngIf="pd.status!='SUBMITTED' else elseBlock">{{pd.status}}</div>
+                   <ng-template #elseBlock>Pending by Dealer</ng-template>  -->
+                 </td>
+                 <td *ngIf="pd.status=='PENDING_TSM'">Pending by TSM
+                  <!-- <div *ngIf="pd.status!='SUBMITTED' else elseBlock">{{pd.status}}</div>
+                 <ng-template #elseBlock>Pending by Dealer</ng-template>  -->
+               </td>
+               <td *ngIf="pd.status=='REJECTED_RHM'">Rejected by RHM
+             </td>
+             <td *ngIf="pd.status=='REJECTED_TSM'">Rejected by TSM
+            </td>
+            <td *ngIf="pd.status=='PENDING_RHM'">Pending by RHM
+            </td>                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>

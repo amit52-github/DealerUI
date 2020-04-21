@@ -1,0 +1,370 @@
+<div class="card">
+<div class=" card-body">
+<form [formGroup]="tab1Form"  (ngSubmit)="submitTab1()"> 
+  <div class=" row">
+    <div class=" col-md-5 pr-md-1">
+        <label class="font-weight-bold"> ORGANIZATIONAL HIERARCHY</label>
+    </div></div>
+    <div class=" row">
+    <div class=" col-md-6 pr-md-1">
+      <div class="form-group required">
+        <label class="control-label"> Sales office </label>  <!--[ngClass]="{ 'is-invalid': submitted && f.salesOffice.errors }"-->
+        <select class=" form-control" formControlName="salesOffice" placeholder="salesOffice"   (change)="getDistrict($event.target.value);"  >
+          <option value="" selected>select</option> 
+          <option *ngFor="let sf of salesOfficeList" value={{sf.id}}>{{sf.name}}</option>
+          <!-- <option value="6301">GREATER MUMBAI</option> -->
+        </select>
+         <!-- <div *ngIf="submitted && f.salesOffice.errors" class="invalid-feedback">
+          <div *ngIf="f.salesOffice.errors.pattern">Sales Office is required</div>
+      </div>  -->
+      </div>
+      <!-- <div class="error" *ngIf="tab1Form.controls['salesOffice'].hasError('required') && tab1Form.controls['salesOffice'].touched" class="alert alert-danger">Sales office is required</div> -->
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-5 pr-md-1">
+      <div class=" form-group">
+        <label class="font-weight-bold"> GEOGRAPHICAL HIERARCHY</label>
+       
+      </div>
+    </div></div>
+  <div class=" row">
+    
+    <div class="col-md-3 pr-md-1">
+      <div class="form-group required">
+        <label class="control-label">  I2 District</label> <!--[ngClass]="{ 'is-invalid': submitted && f.districtCode.errors }"-->
+        <select class=" form-control"  formControlName="districtCode" placeholder="I2 district" (change)="getTaluka($event.target.value);"  >
+          <option value="" selected>select</option>
+          <option *ngFor="let dt of districtList" value={{dt.id}}> {{dt.name}}</option>
+        </select>
+        <!-- <div *ngIf="submitted && f.districtCode.errors" class="invalid-feedback">
+          <div *ngIf="f.districtCode.errors.pattern">Sales Office is required</div>
+      </div>  -->
+        
+      </div>
+    </div>
+    <div class=" col-md-3 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> I2 Taluka </label>  <!--[ngClass]="{'is-invalid':submitted && f.talukaCode.errors}"-->
+        <select class=" form-control"   formControlName="talukaCode" placeholder="I2 taluka" (change)="getCity($event.target.value);"  >
+          <option value="" selected>select</option>
+          <option *ngFor="let tl of talukaList" value={{tl.id}}>{{tl.name}}</option>
+        </select>
+        <!-- <div *ngIf="submitted && f.talukaCode.errors" class="invalid-feedback">
+          <div *ngIf="f.talukaCode.errors.pattern">Sales Office is required</div>
+      </div>  -->
+      </div>
+    </div>
+
+    <div class=" col-md-3 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> City code </label> <!--[ngClass]="{ 'is-invalid': submitted && f.cityCode.errors }"-->
+        <select class=" form-control"  formControlName="cityCode" placeholder="City code" (change)="getTownVillageCode($event.target.value);" >
+          <option value="" selected>select</option>
+          <option *ngFor="let ct of cityList" value={{ct.id}}>{{ct.name}}</option>
+        </select>
+        <!-- <div class="error" *ngIf="tab1Form.controls['cityCode'].hasError('cityCode') && tab1Form.controls['cityCode'].touched" class="alert alert-danger">Sales office is required</div> -->
+
+        <!-- <div *ngIf="submitted && f.cityCode.errors" class="invalid-feedback">
+          <div *ngIf="f.cityCode.errors.pattern">Sales Office is required</div>
+      </div> -->
+        
+      </div>
+    </div>
+ 
+    <div class=" col-md-3 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Town village code </label>
+        <select class=" form-control" formControlName="townVillageCode" placeholder="town village code">
+          <option value="" selected>select</option>
+          <option *ngFor="let tv of townVillageList" value={{tv.id}}>{{tv.name}}</option>
+        </select>
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class=" row">
+    <div class=" col-md-5 pr-md-1">
+      <div class=" form-group">
+        <label class="font-weight-bold"> General Data</label>
+       
+      </div>
+    </div></div>
+
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class="form-group required">
+        <label class="control-label"> Firm Name </label>
+        <input id="name" name="name" class=" form-control"  formControlName="dealerName"  [ngClass]="{ 'is-invalid': submitted && f.dealerName.errors }"
+          placeholder="Name1"  type="text" value=""/>
+
+          <div *ngIf="submitted && f.dealerName.errors" class="invalid-feedback">
+            <div *ngIf="f.dealerName.errors.required">Firm Name is required.</div>
+        </div>
+          <!-- <div class="error" *ngIf="tab1Form.controls['dealerName'].hasError('required') && tab1Form.controls['dealerName'].touched" class="alert alert-danger">Username is required</div> -->
+    </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Address </label>
+        <input
+          class=" form-control"
+          placeholder="Address" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+          type="text"
+          value="" />
+
+          <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+            <div *ngIf="f.address.errors.required">Address is required.</div>
+        </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['address'].hasError('required') && tab1Form.controls['address'].touched" class="alert alert-danger">Address is required</div> -->
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+        <label> Address 1 </label>
+        <input
+          class=" form-control"
+          placeholder="Address 1" formControlName="address1"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+        <label> Address 2 </label>
+        <input
+          class=" form-control"
+          placeholder="Address 2" formControlName="address2"
+          type="text"
+        />
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+        <label> Street </label>
+        <input
+        class=" form-control"
+        placeholder="Street" formControlName="street"
+        type="text"/>
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label">City </label>
+        <input
+        class=" form-control"
+        placeholder="city" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+        type="text"/>
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+          <div *ngIf="f.city.errors.required">City is required</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['city'].hasError('required') && tab1Form.controls['city'].touched" class="alert alert-danger">City is required</div> -->
+
+      </div>
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label">District</label>
+        <input
+          class=" form-control"
+          placeholder="District" formControlName="district" [ngClass]="{ 'is-invalid': submitted && f.district.errors }"
+          type="text"/>
+          <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
+            <div *ngIf="f.district.errors.required">District is required.</div>
+        </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['district'].hasError('required') && tab1Form.controls['district'].touched" class="alert alert-danger">District is required</div> -->
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Postal Code </label>
+        <input
+        class=" form-control"
+        placeholder="Postal Code" formControlName="postalCode"  [ngClass]="{ 'is-invalid': submitted && f.postalCode.errors }"
+        type="text" minlength=6 maxlength=6 />
+
+        <div *ngIf="submitted && f.postalCode.errors" class="invalid-feedback">
+          <div *ngIf="f.postalCode.errors.required">Postal Code is required.</div>
+          <div *ngIf="f.postalCode.errors.pattern">Postal Code should be 6 digits and numeric.</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['postalCode'].hasError('required') && tab1Form.controls['postalCode'].touched" class="alert alert-danger">Postal Code is required</div>
+        <div class="text-danger" *ngIf="tab1Form.controls['postalCode'].hasError('pattern') && (tab1Form.controls['postalCode'].dirty || login_form.controls['postalCode'].touched)" class="alert alert-danger">Only numbers are allow</div>
+        <div class="text-danger" *ngIf="tab1Form.get('postalCode').hasError('minlength')" class="alert alert-danger"> Postal Code must be 6 digits</div> -->
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Mobile No </label><!--(keypress)="keyPress($event)"   (blur)="onBlurMobile($event.target.value)"-->
+        <input
+        class=" form-control"    id="mobileNo"
+        placeholder="Mobile No" formControlName="mobileNo"  [ngClass]="{ 'is-invalid': submitted && f.mobileNo.errors }"
+        type="text" minlength=10  maxlength=10 />
+        <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+          <div *ngIf="f.mobileNo.errors.required">Mobile No is required</div>
+          <div *ngIf="f.mobileNo.errors.pattern">Mobile No should be 10 digits and numeric.</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['mobileNo'].hasError('required') && tab1Form.controls['mobileNo'].touched" class="alert alert-danger">Mobile No. is required</div>
+        <div class="text-danger" *ngIf="tab1Form.controls['mobileNo'].hasError('pattern') && (tab1Form.controls['mobileNo'].dirty || tab1Form.controls['mobileNo'].touched)" class="alert alert-danger">Only numbers are allow</div>
+        <div class="text-danger" *ngIf="tab1Form.get('mobileNo').hasError('minlength')" class="alert alert-danger"> Mobile number must be 10 digits</div> -->
+      </div>
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+        <label> Mobile No 2</label> <!--(keypress)="keyPress($event)"-->
+        <input   
+          class=" form-control" 
+          placeholder="Mobile No 2" formControlName="mobileNo2" minlength=10 maxlength=10 [ngClass]="{ 'is-invalid': submitted && f.mobileNo2.errors }"
+          type="text"/>
+
+          <div *ngIf="submitted && f.mobileNo2.errors" class="invalid-feedback">
+            <div *ngIf="f.mobileNo2.errors.pattern">Mobile No 2 should be 10 digits and numeric.</div>
+        </div>
+          <!-- <div class="text-danger" *ngIf="tab1Form.controls['mobileNo2'].hasError('pattern') && (tab1Form.controls['mobileNo2'].dirty || tab1Form.controls['mobileNo2'].touched)" class="alert alert-danger">Only numbers are allow</div>
+          <div class="text-danger" *ngIf="tab1Form.get('mobileNo2').hasError('minlength')" class="alert alert-danger"> Mobile number must be 10 digits</div> -->
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label "> Email Address </label><!--(blur)="onBlurMethod($event.target.value)"-->
+        <input
+        class=" form-control"
+        placeholder="Email Address" formControlName="emailAddress"  [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }"
+        type="text" />
+        <div *ngIf="submitted && f.emailAddress.errors" class="invalid-feedback">
+          <div *ngIf="f.emailAddress.errors.required">Email Address is required</div>
+          <div *ngIf="f.emailAddress.errors.pattern">Please insert valid email address.</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['emailAddress'].hasError('required') && tab1Form.controls['emailAddress'].touched" class="alert alert-danger">Email Address is required</div>
+        <div class="text-danger" *ngIf="tab1Form.controls['emailAddress'].hasError('pattern') && (tab1Form.controls['emailAddress'].dirty || login_form.controls['email'].touched)" class="alert alert-danger">Please enter valid email address</div> -->
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Legal Status</label>
+
+        <select class=" form-control" formControlName="legalStatus" placeholder="town village code" [ngClass]="{ 'is-invalid': submitted && f.legalStatus.errors }">
+          <!-- <option value="select" selected>select</option> -->
+          <option *ngFor="let ls of legalStatusList" value={{ls.id}}>{{ls.firmType}}</option>
+        </select>
+         
+   <div *ngIf="submitted && f.legalStatus.errors" class="invalid-feedback">
+    <div *ngIf="f.legalStatus.errors.required">Legal Status is required</div>
+</div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['legalStatus'].hasError('required') && tab1Form.controls['legalStatus'].touched" class="alert alert-danger">Legal Status is required</div> -->
+
+      </div>
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Unloading Point</label>
+        <input
+          class=" form-control"
+          placeholder="Unloading Point" formControlName="unloadingPoint"  [ngClass]="{ 'is-invalid': submitted && f.unloadingPoint.errors }"
+          type="text" />
+          <div *ngIf="submitted && f.unloadingPoint.errors" class="invalid-feedback">
+            <div *ngIf="f.unloadingPoint.errors.required">Unloading Point is required</div>
+        </div>
+        <!-- <div class="error" *ngIf="tab1Form.controls['unloadingPoint'].hasError('required') && tab1Form.controls['unloadingPoint'].touched" class="alert alert-danger">UnloadingPoint is required</div> -->
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Bank IFSC Code</label>
+        <input
+        class=" form-control"
+        placeholder="Bank IFSC Code" formControlName="bankIFSCCode"  [ngClass]="{ 'is-invalid': submitted && f.bankIFSCCode.errors }"
+        type="text" minlength=11 maxlength=11/>
+        <div *ngIf="submitted && f.bankIFSCCode.errors" class="invalid-feedback">
+          <div *ngIf="f.bankIFSCCode.errors.required">Bank IFSC Code is required</div>
+          <div *ngIf="f.bankIFSCCode.errors.pattern">Bank IFSC code should be 11 Digits and alphabets only.</div>
+      </div>
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Bank Branch Name</label>
+        <input
+        class=" form-control"
+        placeholder="Bank Branch Name" formControlName="bankBranchName" [ngClass]="{ 'is-invalid': submitted && f.bankBranchName.errors }"
+        type="text"/>
+        <div *ngIf="submitted && f.bankBranchName.errors" class="invalid-feedback">
+          <div *ngIf="f.bankBranchName.errors.required">Bank Branch Name is required</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Bank Account No</label>
+        <input
+          class=" form-control"
+          placeholder="Bank Account No" formControlName="bankAccNo" [ngClass]="{ 'is-invalid': submitted && f.bankAccNo.errors }"
+          type="text" minlength=0 maxlength=18
+        />
+        <div *ngIf="submitted && f.bankAccNo.errors" class="invalid-feedback">
+          <div *ngIf="f.bankAccNo.errors.required">Bank Account No is required</div>
+      </div>
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+        <input
+          class=" form-control"  formControlName="createdBy"
+          type="hidden"/>
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+       
+        <input
+          class=" form-control" formControlName="dealerID"
+          type="hidden" 
+        />
+        
+      </div>
+    </div>
+    
+  </div>
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group">
+       
+        <input
+          class=" form-control" formControlName="id"
+          type="hidden" 
+        />
+        
+      </div>
+    </div></div>
+ 
+  <div class=" row">
+<div class=" col-md-12 pr-md-1"> 
+  <button class=" btn btn-fill btn-danger "  type="submit">Next</button> <!-- [disabled]="tab1Form.invalid"-->
+  <!-- <div *ngIf="invalidLogin" class="error">
+    <div>Invalid credentials.</div>
+  </div> -->
+    </div></div>
+</form>
+</div>
+
+          
+       
+</div>

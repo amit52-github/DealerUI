@@ -1,0 +1,686 @@
+<div class="card">
+  <div class=" card-body">
+    <form [formGroup]="tab3Form" (ngSubmit)="onSubmitTab3()" enctype="multipart/form-data"> 
+<div class=" row">
+  <div class=" col-md-12 pr-md-1">
+    
+      <label class="font-weight-bold"> ATTACHMENTS</label>
+
+      <div class=" table-responsive">
+        <div *ngIf="tse3data.length>0; else elseBlock" >
+        <div *ngFor="let td of tse3data">         
+        <table class=" table tablesorter" id="">
+          <thead class=" text-primary">
+            <tr>
+              <th>SNo.</th>
+              <th>Description</th>
+               <th></th> 
+              <th>Upload</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              
+              <td>1.</td>
+              <td class="control-label">PAN card copy<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="pancardCopy"  [ngClass]="{ 'is-invalid': submitted && f.pancardCopy.errors }"/>
+                <div *ngIf="submitted && f.pancardCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.pancardCopy.errors.required">Pancard copy is required</div>
+              </div>
+              
+              </div></td> -->
+     
+            
+           
+              
+                <td>
+                
+                 <a href="uploadPath/{{td.dealerPanNo}}/{{td.pancardCopyFile}}"  target="_blank" >view file</a>
+                 <input  type="hidden" class="form-control-file form-control-sm" id="panCardFileName" value="{{td.pancardCopyFile}}"/>
+              
+              </td> 
+              <td>
+                <input  type="file" class="form-control-file form-control-sm" id="panCardFile" name="panCardFile"  (change)="onpanCardFile($event)" [ngClass]="{ 'is-invalid': submitted && f.panCardFile.errors }"/>
+              
+               </td>
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="panCardFileReset()">Reset</button> 
+            </td>
+          
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>GSTIN <font color="red">*</font></td>
+
+              
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.gstnCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="gstnCopyFileName" value="{{td.gstnCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="gstinFile" name="gstinFile" (change)="ongstinFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>          
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="gstinFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>3.</td>
+              <td>5 Blank Cheques<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="blankChequesCopy" [ngClass]="{ 'is-invalid': submitted && f.blankChequesCopy.errors }"/>
+              
+                <div *ngIf="submitted && f.blankChequesCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.blankChequesCopy.errors.required">5 Blank Cheques Copy is required</div>
+                </div>
+              </div></td> -->
+
+             
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.blankChequesCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="blankChequesCopyFileName" value="{{td.blankChequesCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="blankChequesFile" name="blankChequesFile" (change)="blankChequesFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+               
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="blankChequesFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>4.</td>
+              <td>Passport size photograph of proprietor<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="photoCopy" [ngClass]="{ 'is-invalid': submitted && f.photoCopy.errors }"/>
+                <div *ngIf="submitted && f.photoCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.photoCopy.errors.required">Passport size photograph Copy is required</div>
+                </div>
+              </div></td> -->
+
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.photoCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="photoCopyFileName" value="{{td.photoCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="passportPhotoFile" name="passportPhotoFile" (change)="passportPhotoFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+               
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="passportPhotoFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>Residential or address proof (electricity bill /telephone bill/aadhar card or firm)<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="addressProofCopy"  [ngClass]="{ 'is-invalid': submitted && f.addressProofCopy.errors }"/>
+                <div *ngIf="submitted && f.addressProofCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.addressProofCopy.errors.required">Residential or address proof Copy is required</div>
+                </div>
+              
+              </div></td> -->
+             
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.addressProofCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="addressProofCopyFileName" value="{{td.addressProofCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="resAddressProofFile" name="resAddressProofFile" (change)="resAddressProofFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+                
+
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="resAddressProofFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>6.</td>
+              <td>Registered/ notorized partnership deed copy<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="partDeedCopy" [ngClass]="{ 'is-invalid': submitted && f.partDeedCopy.errors }"/>
+              
+                <div *ngIf="submitted && f.partDeedCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.partDeedCopy.errors.required">Partnership deed copy is required</div>
+                </div>
+              </div></td> -->
+             
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.partDeedCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="partDeedCopyFileName" value="{{td.partDeedCopyFile}}"/>
+                </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="partDeedCopyFile" name="partDeedCopyFile" (change)="partDeedCopyFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+               
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="partDeedCopyFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>7.</td>
+              <td>Copy of MOA /copy of incorporation and list of directors and board resolution<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="moaCopy"  [ngClass]="{ 'is-invalid': submitted && f.moaCopy.errors }"/>
+              
+                <div *ngIf="submitted && f.moaCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.moaCopy.errors.required">Copy of MOA Copy is required</div>
+                </div>
+              </div></td> -->
+
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.moaCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="moaCopyFileName" value="{{td.moaCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="moaIncorpCopyFile" name="moaIncorpCopyFile" (change)="moaIncorpCopyFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+               
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="moaIncorpCopyFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>8.</td>
+              <td>Bank certificate/last six months bank statement<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="bankStateCopy" [ngClass]="{ 'is-invalid': submitted && f.bankStateCopy.errors }"/>
+              
+                <div *ngIf="submitted && f.bankStateCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.bankStateCopy.errors.required">Copy of MOA is required</div>
+                </div>
+              </div></td> -->
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.bankStateCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="bankStateCopyFileName" value="{{td.bankStateCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="bankStatementFile" name="bankStatementFile" (change)="bankStatementFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+               <td><button type="button" class="btn btn-warning btn-sm" (click)="bankStatementFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>9.</td>
+              <td>Undertaking of stockiest- AD /direct parties<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="stockUndertakingCopy" [ngClass]="{ 'is-invalid': submitted && f.stockUndertakingCopy.errors }"/>
+                <div *ngIf="submitted && f.stockUndertakingCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.stockUndertakingCopy.errors.required">Undertaking of stockiest copy is required</div>
+                </div>
+              </div></td> -->
+                    <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.stockUndertakingCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="stockUndertakingCopyFileName" value="{{td.stockUndertakingCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="directPartiesFile" name="directPartiesFile" (change)="directPartiesFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+              
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="directPartiesFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>10.</td>
+              <td>Income tax return of last year</td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="itReturnCopy"/></div></td>-->
+                <td>
+                  <div *ngIf="td.itReturnCopyFile!=''">
+                    <a href="uploadPath/{{td.dealerPanNo}}/{{td.itReturnCopyFile}}" target="_blank" >view file</a>
+                  </div>
+                 <input  type="hidden" class="form-control-file form-control-sm" id="itReturnCopyFileName" value="{{td.itReturnCopyFile}}"/>
+                
+                </td> 
+                 <td>
+                  <input type="file" class="form-control-file form-control-sm" id="incomeTaxReturnFile" name="incomeTaxReturnFile" (change)="incomeTaxReturnFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+                </td>
+                <td><button type="button" class="btn btn-warning btn-sm" (click)="incomeTaxReturnFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>11.</td>
+              <td>Audited balance sheet- last one year</td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="auditBalCopy"/></div></td> -->
+                
+                  <td>
+                  <div *ngIf="td.auditBalCopyFile!=''">
+                    <a href="uploadPath/{{td.dealerPanNo}}/{{td.auditBalCopyFile}}" target="_blank" >view file</a>
+                  </div>
+                    <input  type="hidden" class="form-control-file form-control-sm" id="auditBalCopyFileName" value="{{td.auditBalCopyFile}}"/>
+                
+                  </td> 
+                 <td>
+                  <input type="file" class="form-control-file form-control-sm" id="auitedBalanceSheetFile" name="auitedBalanceSheetFile" (change)="auitedBalanceSheetFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+                </td>
+                
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="auitedBalanceSheetFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>12.</td>
+              <td>Aadhaar card copy</td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="aAdharCopy"/></div></td> -->
+                
+                  <td>
+                  <div *ngIf="td.aAdharCopyFile!=''">
+                    <a href="uploadPath/{{td.dealerPanNo}}/{{td.aAdharCopyFile}}" target="_blank" >view file</a>
+                  </div>
+                    <input  type="hidden" class="form-control-file form-control-sm" id="aAdharCopyFileName" value="{{td.aAdharCopyFile}}"/>
+                 
+                  </td> 
+                 <td>
+                  <input type="file" class="form-control-file form-control-sm" id="aadhaarCardCopyFile" name="aadhaarCardCopyFile" (change)="aadhaarCardCopyFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+                </td>
+                
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="aadhaarCardCopyFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>13.</td>
+              <td>Shop Establishment Act</td>
+              <!-- <td><div class=" form-group">
+                <input type="checkbox" class=" form-check-input" formControlName="shopEstablishmentActCopy"/></div></td> -->
+               
+                  <td>
+                  <div *ngIf="td.shopEstablishmentActFile!=''">
+                    <a href="uploadPath/{{td.dealerPanNo}}/{{td.shopEstablishmentActFile}}" target="_blank" >view file</a>
+                  </div>
+                    <input  type="hidden" class="form-control-file form-control-sm" id="shopEstablishmentActFileName" value="{{td.shopEstablishmentActFile}}"/>
+                
+                  </td> 
+                 <td>
+                  <input type="file" class="form-control-file form-control-sm" id="shopEstablishmentActFile" name="shopEstablishmentActFile" (change)="shopEstablishmentActFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+                </td>
+                 
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="shopEstablishmentActFileReset()">Reset</button> 
+            </td>
+            </tr>
+            <tr>
+              <td>14.</td>
+              <td>First and last page of signed dealer registration form<font color="red">*</font></td>
+              <!-- <td><div class=" form-group">
+                 <input type="checkbox" class=" form-check-input" formControlName="signFormCopy"  [ngClass]="{ 'is-invalid': submitted && f.signFormCopy.errors }"/>
+                <div *ngIf="submitted && f.signFormCopy.errors" class="invalid-feedback">
+                  <div *ngIf="f.signFormCopy.errors.required">First and last page of signed copy is required</div>
+                </div>
+              </div></td> -->
+              
+                <td>
+                
+                  <a href="uploadPath/{{td.dealerPanNo}}/{{td.signFormCopyFile}}" target="_blank" >view file</a>
+                  <input  type="hidden" class="form-control-file form-control-sm" id="signFormCopyFileName" value="{{td.signFormCopyFile}}"/>
+               </td> 
+               <td>
+                <input type="file" class="form-control-file form-control-sm" id="signedFile" name="signedFile" (change)="signedFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              </td>
+               
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="signedFileReset()">Reset</button> 
+            </td>
+            </tr>
+      
+          </tbody>
+        </table>
+      </div> <!--ng For End -->
+      
+     </div> <!--ng if End -->
+     <ng-template #elseBlock>   <table class=" table tablesorter" id="">
+      <thead class=" text-primary">
+        <tr>
+          <th>SNo.</th>
+          <th>Description</th>
+           <th></th> 
+          <th>Upload</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          
+          <td>1.</td>
+          <td class="control-label">PAN card copy<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="pancardCopy"  [ngClass]="{ 'is-invalid': submitted && f.pancardCopy.errors }"/>
+            <div *ngIf="submitted && f.pancardCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.pancardCopy.errors.required">Pancard copy is required</div>
+          </div>
+          
+          </div></td> -->
+           
+          <td>  
+            <div class="file-field">
+                <input  type="file" class="form-control-file form-control-sm" id="panCardFile" name="panCardFile"  (change)="onpanCardFile($event)" [ngClass]="{ 'is-invalid': submitted && f.panCardFile.errors }"/>
+                <div *ngIf="submitted && f.panCardFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.panCardFile.errors.required">Pancard File is required</div>
+              </div>
+            </div>
+            
+        </td>
+
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="panCardFileReset()">Reset</button> 
+        </td>
+      
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>GSTIN <font color="red">*</font></td>       
+        
+             <td> 
+            <div class="file-field">
+            
+                <input type="file" class="form-control-file form-control-sm" id="gstinFile" name="gstinFile" (change)="ongstinFile($event)" [ngClass]="{ 'is-invalid': submitted && f.gstinFile.errors }" />
+              <div *ngIf="submitted && f.gstinFile.errors" class="invalid-feedback">
+                <div *ngIf="f.gstinFile.errors.required">GSTIN file is required</div>
+              </div>
+           
+            </div>
+        </td>
+                 
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="gstinFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>5 Blank Cheques<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="blankChequesCopy" [ngClass]="{ 'is-invalid': submitted && f.blankChequesCopy.errors }"/>
+          
+            <div *ngIf="submitted && f.blankChequesCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.blankChequesCopy.errors.required">5 Blank Cheques Copy is required</div>
+            </div>
+          </div></td> -->
+          <td> 
+          
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="blankChequesFile" name="blankChequesFile" (change)="blankChequesFile($event)" [ngClass]="{ 'is-invalid': submitted && f.blankChequesFile.errors }"/>
+ 
+                <div *ngIf="submitted && f.blankChequesFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.blankChequesFile.errors.required">5 Blank Cheques file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>         
+        
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="blankChequesFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>Passport size photograph of proprietor<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="photoCopy" [ngClass]="{ 'is-invalid': submitted && f.photoCopy.errors }"/>
+            <div *ngIf="submitted && f.photoCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.photoCopy.errors.required">Passport size photograph Copy is required</div>
+            </div>
+          </div></td> -->
+
+      
+          <td> 
+
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="passportPhotoFile" name="passportPhotoFile" (change)="passportPhotoFile($event)" [ngClass]="{ 'is-invalid': submitted && f.passportPhotoFile.errors }"/>
+                <div *ngIf="submitted && f.passportPhotoFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.passportPhotoFile.errors.required">Passport size photograph file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="passportPhotoFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>Residential or address proof (electricity bill /telephone bill/aadhar card or firm)<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="addressProofCopy"  [ngClass]="{ 'is-invalid': submitted && f.addressProofCopy.errors }"/>
+            <div *ngIf="submitted && f.addressProofCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.addressProofCopy.errors.required">Residential or address proof Copy is required</div>
+            </div>
+          
+          </div></td> -->
+        
+          <td> 
+
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="resAddressProofFile" name="resAddressProofFile" (change)="resAddressProofFile($event)"  [ngClass]="{ 'is-invalid': submitted && f.resAddressProofFile.errors }"/>
+                <div *ngIf="submitted && f.resAddressProofFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.resAddressProofFile.errors.required">Residential or address proof file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>            
+        </td>
+
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="resAddressProofFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>6.</td>
+          <td>Registered/ notorized partnership deed copy<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="partDeedCopy" [ngClass]="{ 'is-invalid': submitted && f.partDeedCopy.errors }"/>
+          
+            <div *ngIf="submitted && f.partDeedCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.partDeedCopy.errors.required">Partnership deed copy is required</div>
+            </div>
+          </div></td> -->
+       
+          <td> 
+
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="partDeedCopyFile" name="partDeedCopyFile" (change)="partDeedCopyFile($event)" [ngClass]="{ 'is-invalid': submitted && f.partDeedCopyFile.errors }"/>
+                <div *ngIf="submitted && f.partDeedCopyFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.partDeedCopyFile.errors.required">Partnership deed copy file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="partDeedCopyFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>7.</td>
+          <td>Copy of MOA /copy of incorporation and list of directors and board resolution<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="moaCopy"  [ngClass]="{ 'is-invalid': submitted && f.moaCopy.errors }"/>
+          
+            <div *ngIf="submitted && f.moaCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.moaCopy.errors.required">Copy of MOA Copy is required</div>
+            </div>
+          </div></td> -->
+
+          <td> 
+            
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="moaIncorpCopyFile" name="moaIncorpCopyFile" (change)="moaIncorpCopyFile($event)" [ngClass]="{ 'is-invalid': submitted && f.moaIncorpCopyFile.errors }"/>
+                <div *ngIf="submitted && f.moaIncorpCopyFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.moaIncorpCopyFile.errors.required">Copy of MOA file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="moaIncorpCopyFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>8.</td>
+          <td>Bank certificate/last six months bank statement<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="bankStateCopy" [ngClass]="{ 'is-invalid': submitted && f.bankStateCopy.errors }"/>
+          
+            <div *ngIf="submitted && f.bankStateCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.bankStateCopy.errors.required">Copy of MOA is required</div>
+            </div>
+          </div></td> -->
+    
+          <td> 
+            
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="bankStatementFile" name="bankStatementFile" (change)="bankStatementFile($event)"  [ngClass]="{ 'is-invalid': submitted && f.bankStatementFile.errors }">
+                <div *ngIf="submitted && f.bankStatementFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.bankStatementFile.errors.required">Bank Statement  file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="bankStatementFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>9.</td>
+          <td>Undertaking of stockiest- AD /direct parties<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="stockUndertakingCopy" [ngClass]="{ 'is-invalid': submitted && f.stockUndertakingCopy.errors }"/>
+            <div *ngIf="submitted && f.stockUndertakingCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.stockUndertakingCopy.errors.required">Undertaking of stockiest copy is required</div>
+            </div>
+          </div></td> -->
+         
+          <td> 
+
+
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="directPartiesFile" name="directPartiesFile" (change)="directPartiesFile($event)" [ngClass]="{ 'is-invalid': submitted && f.directPartiesFile.errors }"/>
+                <div *ngIf="submitted && f.directPartiesFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.directPartiesFile.errors.required">Undertaking of stockiest file is required</div>
+                </div>
+            <!-- </div> -->
+            </div>
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="directPartiesFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>10.</td>
+          <td>Income tax return of last year</td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="itReturnCopy"/></div></td>-->
+          
+          <td>  
+            
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="incomeTaxReturnFile" name="incomeTaxReturnFile" (change)="incomeTaxReturnFile($event)">
+            <!-- </div> -->
+          </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="incomeTaxReturnFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>11.</td>
+          <td>Audited balance sheet- last one year</td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="auditBalCopy"/></div></td> -->
+           
+          <td>  
+
+
+            
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="auitedBalanceSheetFile" name="auitedBalanceSheetFile" (change)="auitedBalanceSheetFile($event)">
+            <!-- </div> -->
+            </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="auitedBalanceSheetFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>12.</td>
+          <td>Aadhaar card copy</td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="aAdharCopy"/></div></td> -->
+          
+          <td> 
+
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="aadhaarCardCopyFile" name="aadhaarCardCopyFile" (change)="aadhaarCardCopyFile($event)">
+            <!-- </div> -->
+            </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="aadhaarCardCopyFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>13.</td>
+          <td>Shop Establishment Act</td>
+          <!-- <td><div class=" form-group">
+            <input type="checkbox" class=" form-check-input" formControlName="shopEstablishmentActCopy"/></div></td> -->
+           
+          <td>  
+
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="shopEstablishmentActFile" name="shopEstablishmentActFile" (change)="shopEstablishmentActFile($event)">
+            <!-- </div> -->
+            </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="shopEstablishmentActFileReset()">Reset</button> 
+        </td>
+        </tr>
+        <tr>
+          <td>14.</td>
+          <td>First and last page of signed dealer registration form<font color="red">*</font></td>
+          <!-- <td><div class=" form-group">
+             <input type="checkbox" class=" form-check-input" formControlName="signFormCopy"  [ngClass]="{ 'is-invalid': submitted && f.signFormCopy.errors }"/>
+            <div *ngIf="submitted && f.signFormCopy.errors" class="invalid-feedback">
+              <div *ngIf="f.signFormCopy.errors.required">First and last page of signed copy is required</div>
+            </div>
+          </div></td> -->
+          <td>  
+            
+            <div class="file-field">
+              <!-- <div class="">
+                <span>Choose file</span> -->
+                <input type="file" class="form-control-file form-control-sm" id="signedFile" name="signedFile" (change)="signedFile($event)" [ngClass]="{ 'is-invalid': submitted && f.signedFile.errors }"/>
+                <div *ngIf="submitted && f.signedFile.errors" class="invalid-feedback">
+                  <div *ngIf="f.signedFile.errors.required">First and last page of signed file is required</div>
+                </div>
+            <!-- </div> -->
+          </div>            
+        </td>
+        <td><button type="button" class="btn btn-warning btn-sm" (click)="signedFileReset()">Reset</button> 
+        </td>
+        </tr>
+  
+      </tbody>
+    </table></ng-template>
+    </div> 
+    
+  </div></div>
+  <div *ngIf="progress">
+  <p><ngb-progressbar type="warning" [value]="75" [striped]="true" [animated]="true" ><i></i></ngb-progressbar></p>
+</div>
+  <div class=" row">
+    <div class=" col-md-6 pr-md-1">
+  <button class=" btn btn-fill btn-danger" type="submit" aria-label="Previous" (click)="onPrevious()" [disabled]="onSubmit" >Previous</button>
+</div> <div class=" col-md-6 pr-md-1">
+  <button class=" btn btn-fill btn-danger" type="submit" [disabled]="onSubmit">Submit</button>
+    </div></div>
+  </form>
+</div>
+</div>

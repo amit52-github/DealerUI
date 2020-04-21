@@ -1,0 +1,274 @@
+<div class="card">
+  <div class=" card-body">
+    <form [formGroup]="tab2Form" (ngSubmit)="submitTab2()" > 
+<div class=" row">
+  <div class=" col-md-5 pr-md-1">
+    <div class=" form-group">
+      <label class="font-weight-bold"> CONTACT PERSON DETAILS</label>
+     
+    </div>
+  </div></div>
+  <div class=" row">
+    <div class=" col-md-6 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Last Name </label>
+        <input
+          class=" form-control"
+          placeholder="Last Name" formControlName="dealerLastname" [ngClass]="{ 'is-invalid': submitted && f.dealerLastname.errors }"
+          type="text"
+          value=""
+        />
+        <div *ngIf="submitted && f.dealerLastname.errors" class="invalid-feedback">
+          <div *ngIf="f.dealerLastname.errors.required">Last Name is required</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerLastname'].hasError('required') && tab2Form.controls['dealerLastname'].touched" class="text-danger small">Last Name is required</div> -->
+
+      </div>
+    </div>
+  
+    <div class=" col-md-6 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label">First Name</label>
+        <input
+          class=" form-control"
+          placeholder="First Name" formControlName="dealerFirstname" [ngClass]="{ 'is-invalid': submitted && f.dealerFirstname.errors }"
+          type="text"
+          value=""
+        />
+
+        <div *ngIf="submitted && f.dealerFirstname.errors" class="invalid-feedback">
+          <div *ngIf="f.dealerFirstname.errors.required">First Name is required</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerFirstname'].hasError('required') && tab2Form.controls['dealerFirstname'].touched" class="text-danger small">First name is required</div> -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class=" row">
+    <div class=" col-md-6 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> Telephone 1</label> <!--(keypress)="keyPressTelephone($event)"-->
+        <input
+          class=" form-control"
+          placeholder="Telephone 1" formControlName="dealerTelNo1"  [ngClass]="{ 'is-invalid': submitted && f.dealerTelNo1.errors }"
+          type="text"
+          value=""  minlength="11" maxlength="11"  
+        />
+        <div *ngIf="submitted && f.dealerTelNo1.errors" class="invalid-feedback">
+          <div *ngIf="f.dealerTelNo1.errors.required">Telephone number 1 is required</div>
+          <div *ngIf="f.dealerTelNo1.errors.pattern">Telephone number 1 should be 11 digits and numeric.</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerTelNo1'].hasError('required') && tab2Form.controls['dealerTelNo1'].touched" class="text-danger small">Telephone number 1 is required</div>
+        <div class="text-danger" *ngIf="tab2Form.controls['dealerTelNo1'].hasError('pattern') && (tab2Form.controls['dealerTelNo1'].dirty || tab2Form.controls['dealerTelNo1'].touched)" class="text-danger small">Telephone number 1 should be 11 digits and numeric.</div>
+        <div class="text-danger" *ngIf="tab2Form.get('dealerTelNo1').hasError('minlength')" class="alert alert-danger"> Telephone number 1 should be 11 digits</div> -->
+      </div>
+    </div>
+  
+    <div class=" col-md-6 pr-md-1">
+      <div class=" form-group">
+        <label> Telephone 2</label>
+        <input
+          class=" form-control"
+          placeholder="Telephone 2" formControlName="dealerTelNo2" [ngClass]="{ 'is-invalid': submitted && f.dealerTelNo2.errors }"
+          type="text"
+          value="" maxlength="11"  
+        />
+        <div *ngIf="submitted && f.dealerTelNo2.errors" class="invalid-feedback">
+         
+          <div *ngIf="f.dealerTelNo2.errors.pattern">Telephone number 2 should be 11 digits and numeric.</div>
+     
+      </div>
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerTelNo2'].hasError('required') && tab2Form.controls['dealerTelNo2'].touched" class="alert alert-danger">Telephone number 1 is required</div> -->
+        <!-- <div class="text-danger" *ngIf="tab2Form.controls['dealerTelNo2'].hasError('pattern') && (tab2Form.controls['dealerTelNo2'].dirty || tab2Form.controls['dealerTelNo2'].touched)" class="text-danger small">Only numbers and - are allow</div>
+        <div class="text-danger" *ngIf="tab2Form.get('dealerTelNo2').hasError('minlength')" class="alert alert-danger">Telephone number 2 should be 16 digits</div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class=" row">
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label">PAN</label>
+        <input
+          class=" form-control"
+          placeholder="PAN" formControlName="dealerPanNo" id="dealerPanNo" (change)="panVerify($event)" [ngClass]="{ 'is-invalid': submitted && f.dealerPanNo.errors }"
+          type="text" id="dealerPanNo"   style="text-transform: uppercase;" 
+          value=""  minlength="10"  maxlength="10"
+        />
+        <div *ngIf="submitted && f.dealerPanNo.errors" class="invalid-feedback">
+           <div *ngIf="f.dealerPanNo.errors.required">Pan Card No. is required</div> 
+          <div *ngIf="f.dealerPanNo.errors.pattern" >Please insert valid Pan No.</div>
+      </div>
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerPanNo'].hasError('required') && tab2Form.controls['dealerPanNo'].touched" class="text-danger small">Pan Card No. is required</div>
+        <div class="error" *ngIf="tab2Form.controls['dealerPanNo'].hasError('pattern') &&  (tab2Form.controls['dealerAadharNo'].dirty || tab2Form.controls['dealerPanNo'].touched)" class="text-danger small">Please insert valid Pan No.</div> -->
+
+      </div>
+    </div>
+  
+    <div class=" col-md-4 pr-md-1">
+      <div class=" form-group required">
+        <label class="control-label"> GSTIN No</label><!--(blur)="onBlurGSTINNo($event.target.value)"-->
+        <input
+          class=" form-control"
+          placeholder="GSTIN No" formControlName="dealerGSTNNo"  (change)="gstinVerify($event)" [ngClass]="{ 'is-invalid': submitted && f.dealerGSTNNo.errors }"
+          type="text" 
+          value="" minlength="15"   maxlength="15" style="text-transform: uppercase;" 
+        />
+        <div *ngIf="submitted && f.dealerGSTNNo.errors" class="invalid-feedback">
+          <div *ngIf="f.dealerGSTNNo.errors.required">GSTIN No is required.</div> 
+          <div *ngIf="f.dealerGSTNNo.errors.pattern">GSTIN No should be 15 digits with valid no.</div> 
+     </div>
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerGSTNNo'].hasError('required') && tab2Form.controls['dealerGSTNNo'].touched" class="text-danger small">GSTIN No is required</div> -->
+
+      </div>
+    </div>
+    <div class=" col-md-4 pr-md-1">
+      <div class="form-group">
+        <label class=""> AADHAAR No</label>
+        <input
+          class=" form-control" 
+          placeholder="AADHAAR No" formControlName="dealerAadharNo" [ngClass]="{ 'is-invalid': submitted && f.dealerAadharNo.errors }"
+          type="text"   minlength="0"   maxlength="12"/>
+
+
+          <!-- <div *ngIf="dealerAadharNo.invalid && (dealerAadharNo.dirty || dealerAadharNo.touched)">
+            <div *ngIf="dealerAadharNo.errors.pattern">
+              AADHAAR No should be 16 digits and numeric.
+            </div>
+          </div> -->
+          <div *ngIf="submitted && f.dealerAadharNo.errors" class="invalid-feedback">
+            <!-- <div *ngIf="f.dealerAadharNo.errors.required">AADHAAR No is required.</div>  -->
+            <div *ngIf="f.dealerAadharNo.errors.pattern">AADHAAR No should be 12 digits and numeric.</div> 
+       </div>
+
+        <!-- <div class="error" *ngIf="tab2Form.controls['dealerAadharNo'].hasError('required') && tab2Form.controls['dealerAadharNo'].touched" class="text-danger small">AADHAAR No is required</div>
+        <div class="text-danger" *ngIf="tab2Form.controls['dealerAadharNo'].hasError('pattern') && (tab2Form.controls['dealerAadharNo'].dirty || tab2Form.controls['dealerAadharNo'].touched)" class="text-danger small">Only numbers are allow</div>
+        <div class="text-danger" *ngIf="tab2Form.get('dealerAadharNo').hasError('minlength')" class="text-danger small"> AADHAAR No must be 16 digits</div> -->
+
+      </div>
+    </div>
+  </div>
+  <div class=" row">
+    <div class=" col-md-5 pr-md-1">
+      <div class=" form-group">
+        <label class="font-weight-bold"> ACTUAL COUNTER VALUE & TARGET VALUE</label>
+       
+      </div>
+    </div></div>
+
+    <div class=" row">
+      <div class=" col-md-6 pr-md-1">
+        <div class=" form-group required">
+          <label class="control-label"> ACV potential Qty (MT)</label>
+          <input
+            class=" form-control"
+            placeholder="ACV potential Qty (MT)" formControlName="acvPotentialQty" [ngClass]="{ 'is-invalid': submitted && f.acvPotentialQty.errors }"
+            type="text"
+            value="" minlength=0 maxlength="19"
+          />
+          <div *ngIf="submitted && f.acvPotentialQty.errors" class="invalid-feedback">
+            <div *ngIf="f.acvPotentialQty.errors.required">ACV potential Qty (MT) is required.</div> 
+            <div *ngIf="f.acvPotentialQty.errors.pattern">ACV potential Qty (MT) atleast 2 digits and numeric..</div> 
+       </div>
+          <!-- <div class="error" *ngIf="tab2Form.controls['acvPotentialQty'].hasError('required') && tab2Form.controls['acvPotentialQty'].touched" class="text-danger small">ACV potential Qty (MT) is required</div>
+          <div class="error" *ngIf="tab2Form.controls['acvPotentialQty'].hasError('pattern')  && (tab2Form.controls['acvPotentialQty'].dirty || tab2Form.controls['acvPotentialQty'].touched)" class="text-danger small">Only numbers are allow</div> -->
+
+        </div>
+      </div>
+    
+      <div class=" col-md-6 pr-md-1">
+        <div class=" form-group required">
+          <label class="control-label">Target Qty (MT)</label> 
+          <input
+            class=" form-control"
+            placeholder="Target Qty (MT)" formControlName="targetQty"  [ngClass]="{ 'is-invalid': submitted && f.targetQty.errors }"
+            type="text"
+            value="" minlength=0 maxlength=19
+          />
+          <div *ngIf="submitted && f.targetQty.errors" class="invalid-feedback">
+            <div *ngIf="f.targetQty.errors.required">Target Qty (MT) is required.</div> 
+            <div *ngIf="f.targetQty.errors.pattern">Target Qty (MT) atleast 2 digits and numeric..</div> 
+       </div>
+          <!-- <div class="error" *ngIf="tab2Form.controls['targetQty'].hasError('required') && tab2Form.controls['targetQty'].touched" class="text-danger small">Target Qty (MT) is required</div> -->
+
+        </div>
+      </div>
+    </div>
+  
+    <div class=" row">
+      <div class=" col-md-4 pr-md-1">
+        <div class=" form-group">
+          <label class="">Introduced By</label>
+          <select class=" form-control"  formControlName="introBy" placeholder="Introduced By">
+            <option value="" selected>select</option>
+            <option value="Sales Promoter">Sales Promoter</option>
+            <option value="Authorised Stockiest">Authorised Stockiest</option>
+            <option value="Dealer">Dealer</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+      </div>
+    
+      <div class=" col-md-4 pr-md-1">
+        <div class=" form-group">
+          <label class=""> Introducer Customer Code</label> <!--(change)="getIntroducerName($event)"-->
+          <input
+            class=" form-control"
+            placeholder="Introducer Customer Code" formControlName="introCustCode"  (keyup)="keyPressIntroducerName($event)" [ngClass]="{ 'is-invalid': submitted && f.introCustCode.errors }"
+            type="text" 
+            value="" mgetIntroducerNameinlength="10"   maxlength="10"
+          />
+          <div *ngIf="submitted && f.introCustCode.errors" class="invalid-feedback">
+             
+            <div *ngIf="f.introCustCode.errors.pattern">Introducer Customer Code should be 10 digits or alphabets.</div> 
+       </div>
+   
+        </div>
+      </div>
+      <div class=" col-md-4 pr-md-1">
+        <div class="form-group">
+          <label class=""> Introducer Name</label>
+         
+          <input
+          class=" form-control"
+          placeholder="Introducer Name" formControlName="introName" id="introName"
+          type="text"  value="{{introducerName}}"
+          value=""  minlength="0"  maxlength="" readonly
+        />
+    
+        </div>
+      </div>
+    </div>
+    <div class=" row">
+      <div class=" col-md-3 pr-md-1">
+        
+          <label>Depth of Distribution</label>
+        </div>
+        <div class=" col-md-3 pr-md-1">  
+          <div class=" form-group">
+          <input type="checkbox"
+          class=" form-check-input"   formControlName="depthDistribution" value="" [checked]="false"/>
+        </div>
+      </div>
+
+      <div class=" col-md-3 pr-md-1">
+        
+        <label>Numeric Reach</label>
+      </div>
+      <div class=" col-md-3 pr-md-1">
+        <div class=" form-group">
+        <input type="checkbox"
+          class=" form-check-input"   formControlName="numericReach" [checked]="true" />
+      </div>
+      </div>
+    </div>
+    <div class=" row">
+      <div class=" col-md-6 pr-md-1">
+    <button class=" btn btn-fill btn-danger" type="submit" aria-label="Previous" (click)="getPrevious()">Previous</button>
+  </div> <div class=" col-md-6 pr-md-1">
+    <button class=" btn btn-fill btn-danger"  type="submit">Next</button> <!--[disabled]="tab2Form.invalid"-->
+      </div></div>
+  </form>
+    </div>
+    </div>

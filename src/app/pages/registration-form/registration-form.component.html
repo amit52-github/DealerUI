@@ -1,0 +1,40 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header text-center bg-warning text-white center"><h5 class=" title">Welcome To Dealer Registration Form</h5></div>
+        
+          <div class=" card-body">
+            
+ <ngb-tabset #t="ngbTabset">
+  <ngb-tab title="TSE Form 1"   id="tab1id" (click)="onTab1Button()" [disabled]="tab1" >
+    <ng-template ngbTabContent>
+
+      <!-- <input type="text">
+      <button type="submit" (click)="t.select('tab2id')">Next</button> -->
+       <app-tab1></app-tab1>  
+      <!-- <button class="btn btn-outline-primary" (click)="onSubmitTab1();t.select('tab2')">Next</button> -->
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="TSE Form 2"  id="tab2id" (tabChange)="tab2Button()" [disabled]="tab2" >
+    <ng-template ngbTabContent>
+      <!-- <input type="text">
+      <button type="submit" (click)="t.select('tab1id')">prvious</button> -->
+      <app-tab2></app-tab2> 
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="TSE Form 3"   id="tab3id" [disabled]="tab3">
+    <ng-template ngbTabContent>
+     <app-tab3></app-tab3>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+
+
+        </div><!------------------------------------------------------->
+      </div>
+    </div>
+    
+  </div>
+</div> <!-- content end-->

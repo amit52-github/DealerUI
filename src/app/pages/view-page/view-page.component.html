@@ -1,0 +1,560 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header text-center bg-warning text-white center"><h5 class=" title">Welcome To Dealer Form</h5></div>
+        
+          <div class=" card-body">
+            
+
+     
+        <form> 
+          <!-- <div class=" card">
+            <div class=" card-header"> -->
+              <!-- <h5 class=" card-title">ORGANIZATIONAL HIERARCHY</h5>
+            </div>
+            <div class=" card-body"> -->
+              <div class=" row">
+                <div class=" col-sm-12">
+                  <h6 class="">ORGANIZATIONAL HIERARCHY</h6>
+                </div>
+              </div>
+              <div class=" row">
+                <div class=" col-md-2 pr-md-1">
+                  <label class="font-weight-bold ">Sales Office :</label>
+                </div>
+                <div class=" col-md-2 pr-md-1">
+                  <label> {{dealerDetail.salesOffice}} </label>
+                </div>
+               
+              <div class=" col-md-2 pr-md-1">
+                <label class="font-weight-bold">Zone :</label>
+              </div>
+              <div class=" col-md-2 pr-md-1">
+                <label> {{dealerDetail.salesZone}} </label>
+              </div>
+
+              <div class=" col-md-2 pr-md-1">
+                <label class="font-weight-bold"> Region :</label>
+              </div>
+              <div class=" col-md-2 pr-md-1">
+                <label> {{dealerDetail.distName}} </label>
+              </div>
+
+              <div class=" col-md-2 pr-md-1">
+                <label class="font-weight-bold "> State :</label>
+              </div>
+              <div class=" col-md-2 pr-md-1">
+                <label> {{dealerDetail.regionDesc}} </label>
+              </div>
+              </div>
+            <!-- </div>
+          </div> -->
+
+          <!-- <div class=" card">
+            <div class=" card-header">
+              <h5 class=" card-title">GEOGRAPHICAL HIERARCHY</h5>
+            </div>
+            <div class=" card-body"> -->
+                
+              <div class=" row">
+                <div class=" col-sm-12">
+                  <h6 class="">GEOGRAPHICAL HIERARCHY</h6>
+                </div>
+              </div>
+          <div class=" row">
+           
+            <div class=" col-md-2 pr-md-1">
+              
+              <label class="font-weight-bold"> Firm Name :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.dealerName}}</label >
+          </div>
+
+          <div class=" col-md-2 pr-md-1">
+            
+            <label class="font-weight-bold"> Mobile No : </label><!--(keypress)="keyPress($event)"-->
+          </div><div class=" col-md-2 pr-md-1">
+            <label > {{dealerDetail.mobileNo}}</label >
+         
+        </div>
+
+        <div class=" col-md-2 pr-md-1">
+            
+          <label class="font-weight-bold"> Email Address :</label>
+        </div><div class=" col-md-2 pr-md-1">
+          <label > {{dealerDetail.emailAddress}}</label >
+        
+      </div>
+            <div class="col-md-2 pr-md-1">
+       
+                <label class="font-weight-bold"> I2 District</label>
+              </div>
+                <div class="col-md-2 pr-md-1">
+                <label> {{dealerDetail.dealerDistrict}} </label>
+                </div>
+            
+            
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> I2 Taluka </label>
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+              <label> {{dealerDetail.dealerTaluka}} </label>
+          </div>
+          <div class=" col-md-2 pr-md-1">
+             
+            <label class="font-weight-bold"> City code :</label >
+        </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.cityCode}}</label >
+            </div>
+          </div>
+          <div class="row">
+            
+         
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> Town village code : </label>
+            </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.townVillageCode}}</label >
+            </div>
+            <div class=" col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold"> Address :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.address}}</label >
+             
+           
+          </div>
+          <div class=" col-md-2 pr-md-1">
+           
+            <label class="font-weight-bold"> Address 1 :</label>
+          </div><div class=" col-md-2 pr-md-1">
+            <label > {{dealerDetail.address1}}</label >
+         
+        </div>
+       
+        </div>
+
+
+        <div class=" row">
+          <div class=" col-md-2 pr-md-1">
+         
+              <label class="font-weight-bold"> Address 2 :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.address2}}</label >
+             
+            
+          </div>
+          <div class=" col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold"> Street :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.street}}</label >
+      
+            </div>
+          
+          <div class="col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold">city :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.city}}</label >
+            
+          </div>
+        </div>
+ 
+        <div class=" row">
+          <div class=" col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold">District :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.district}}</label >
+           
+          </div>
+          <div class=" col-md-2 pr-md-1">
+       
+              <label class="font-weight-bold"> Postal Code : </label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.postalCode}}</label >
+           
+          </div>
+          <div class=" col-md-2 pr-md-1">
+           
+            <label class="font-weight-bold"> Mobile No 2 :</label> <!--(keypress)="keyPress($event)"-->
+          </div><div class=" col-md-2 pr-md-1">
+            <label > {{dealerDetail.mobileNo2}}</label >
+          
+        </div>
+       
+        </div>
+        
+      
+
+        <div class=" row">
+          <div class=" col-md-2 pr-md-1">
+            
+            <label class="font-weight-bold"> Legal Status :</label>
+          </div><div class=" col-md-2 pr-md-1">
+            <label > {{dealerDetail.legalStatus}}</label >
+          
+        </div>
+          <div class=" col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold"> Unloading Point :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.unloadingPoint}}</label >
+          </div>
+          <div class=" col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold"> Bank IFSC Code :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.bankIFSCCode}}</label >
+          
+          </div>
+          
+        </div>
+        <div class=" row">
+          <div class=" col-md-2 pr-md-1">
+            
+            <label class="font-weight-bold"> Bank Branch Name :</label>
+          </div><div class=" col-md-2 pr-md-1">
+            <label > {{dealerDetail.bankBranchName}}</label >
+         
+        </div>
+          <div class=" col-md-2 pr-md-1">
+      
+              <label class="font-weight-bold"> Bank Account No : </label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.bankAccNo}}</label >            
+            
+          </div>
+          
+        </div>
+              <!-- </div>
+          </div> -->
+
+
+
+
+
+
+
+          
+           
+            
+        
+       
+          <!-- <div class=" card">
+            <div class=" card-header">
+              <h5 class=" card-title">CONTACT PERSON DETAILS</h5>
+            </div>
+            <div class=" card-body"> -->
+
+              <div class=" row">
+                <div class=" col-sm-12">
+                  <h6 class="">CONTACT PERSON DETAILS</h6>
+                </div>
+              </div>
+          
+          <div class=" row">
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> Last Name :</label>
+            </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerLastname}}</label >
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> First Name :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerFirstname}}</label >
+            
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> Telephone 1 :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerTelNo1}}</label >
+             
+            </div>
+          </div>
+          <div class=" row">
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> Telephone 2 :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerTelNo2}}</label >
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> PAN :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerPanNo}}</label >
+            
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> GSTIN No :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerGSTNNo}}</label >
+             
+            </div>
+          </div>
+
+          <div class=" row">
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> AADHAAR No :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.dealerAadharNo}}</label >
+            </div>
+           
+          </div>
+
+   
+              <div class=" row">
+                <div class=" col-sm-12">
+                  <h6 class="">ACTUAL COUNTER VALUE & TARGET VALUE</h6>
+                </div>
+              </div>
+        
+          <div class=" row">
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> ACV potential Qty (MT):</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.acvPotentialQty}}</label >
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> Target Qty (MT) :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.targetQty}}</label >
+            
+            </div>
+            <div class=" col-md-2 pr-md-1">
+              
+              <label class="font-weight-bold"> Introduced By:</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.introBy}}</label >
+          </div>
+          <div class=" col-md-2 pr-md-1">
+            
+              <label class="font-weight-bold"> Introducer Customer Code :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.introCustCode}}</label >
+          
+          </div>
+          <div class=" col-md-2 pr-md-1">
+            
+            <label class="font-weight-bold"> Introducer Name :</label>
+          </div><div class=" col-md-2 pr-md-1">
+            <label > {{dealerDetail.introName}}</label >
+        
+        </div>
+            <div class=" col-md-2 pr-md-1">
+              
+                <label class="font-weight-bold"> Depth of Distribution :</label>
+              </div><div class=" col-md-2 pr-md-1">
+                <label > {{dealerDetail.depthDistribution}}</label >
+             
+            </div>
+          </div>
+          <div class=" row">
+            <div class=" col-md-2 pr-md-1">
+              
+              <label class="font-weight-bold"> Numeric Reach :</label>
+            </div><div class=" col-md-2 pr-md-1">
+              <label > {{dealerDetail.numericReach}}</label >
+           
+          </div>
+          </div>
+          <!-- </div>
+          </div> -->
+          <!-- </div>
+          </div> -->
+          <!-- <div class=" card">
+            <div class=" card-header text-center  center">
+              <h5 class=" card-title">Attachments</h5>
+            </div>
+            <div class=" card-body"> -->
+              <div class=" row">
+                <div class=" col-sm-12">
+                  <h6 class="">Attachments</h6>
+                </div>
+              </div>
+
+              <div class=" table-responsive">
+                <table class=" table tablesorter" id="">
+                  <thead class=" text-primary">
+                    <tr>
+                      <th class="font-weight-bold">S.No</th>
+                      <th class="font-weight-bold"> Copy</th>
+                      <!-- <th class="font-weight-bold"> Collected</th> -->
+                      <th class="font-weight-bold">File View</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>PAN card copy</td>
+                      <!-- <td>{{dealerDetail.pancardCopy}}</td> -->
+                      <td>
+                         <a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.pancardCopyFile}}" target="_blank" >view file</a> 
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>GSTIN copy</td>
+                      <!-- <td>{{dealerDetail.gstnCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.gstnCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>5 Blank Cheques copy</td>
+                      <!-- <td>{{dealerDetail.blankChequesCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.blankChequesCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Residential or address proof (electricity bill /telephone bill/aadhar card or firm)</td>
+                      <!-- <td>{{dealerDetail.addressProofCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.addressProofCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Registered/ notorized partnership deed</td>
+                      <!-- <td>{{dealerDetail.partDeedCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.partDeedCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Copy of MOA /copy of incorporation and list of directors and board resolution</td>
+                      <!-- <td>{{dealerDetail.moaCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.moaCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Bank certificate/last six months bank statement</td>
+                      <!-- <td>{{dealerDetail.bankStateCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.bankStateCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Undertaking of stockiest- AD /direct parties</td>
+                      <!-- <td>{{dealerDetail.stockUndertakingCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.stockUndertakingCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Income tax return of last year</td>
+                      <!-- <td>{{dealerDetail.itReturnCopy}}</td> -->
+                 
+                      <td *ngIf="dealerDetail.itReturnCopyFile!=''">
+                        <a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.itReturnCopyFile}}" target="_blank" >view file</a>
+                      </td>
+                      <td *ngIf="dealerDetail.itReturnCopyFile==''">
+                       
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Auited balance sheet- last one year</td>
+                      <!-- <td>{{dealerDetail.auditBalCopy}}</td> -->
+                      <td *ngIf="dealerDetail.auditBalCopyFile!=''">
+                        <a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.auditBalCopyFile}}" target="_blank" >view file</a>
+                       </td>
+                       <td *ngIf="dealerDetail.auditBalCopyFile==''">
+                       </td>
+                    </tr>
+     
+                    <tr>
+                      <td>10</td>
+                      <td>Aadhaar card </td>
+                      <!-- <td>{{dealerDetail.aAdharCopy}}</td> -->
+                      <td *ngIf="dealerDetail.aAdharCopyFile!=''">
+                        <a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.aAdharCopyFile}}" target="_blank" >view file</a>
+                    </td>
+                    <td *ngIf="dealerDetail.aAdharCopyFile==''">
+                    </td>
+                    </tr>
+                    <tr>
+                      <td>11</td>
+                      <td>Shop Establishment Act File</td>
+                      <!-- <td>{{dealerDetail.signFormCopy}}</td> -->
+                      
+                      <td *ngIf="dealerDetail.shopEstablishmentActFile!=''">
+                        <a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.shopEstablishmentActFile}}" target="_blank" >view file</a>
+                      </td>
+                      <td *ngIf="dealerDetail.shopEstablishmentActFile==''">
+                       
+                      </td>                  
+                    </tr>
+                    <tr>
+                      <td>12</td>
+                      <td>First and last page of signed dealer registration form</td>
+                      <!-- <td>{{dealerDetail.signFormCopy}}</td> -->
+                      <td><a href="uploadPath/{{dealerDetail.dealerPanNo}}/{{dealerDetail.signFormCopyFile}}" target="_blank" >view file</a> </td>
+                    </tr>
+                   
+                    </tbody>
+                </table>
+                </div>
+
+         
+          <div class=" row">
+            <div class=" col-md-6 pr-md-1" *ngIf="show"> 
+              <label>Remark: </label>
+          <input
+          class=" form-control"
+          placeholder="Enter remark "   id="remark"
+          type="text" 
+          value="" 
+        />
+        </div>
+          </div>
+         
+        
+          <div class=" row" *ngIf="dealerDetail.status=='APPROVED' || username=='tse_mumbai' || dealerDetail.status=='REJECTED_TSM' || dealerDetail.status=='REJECTED_RHM'   || (username=='tsm_mumbai' && dealerDetail.status=='PENDING_RHM' || dealerDetail.status=='REJECTED_RHM'); else elseBlock">
+            <div class=" col-md-6 pr-md-1"> 
+              
+              <!-- <button class=" btn btn-fill btn-danger " (click)="onReject()" type="submit">Reject</button> -->
+             
+                </div>
+        <div class=" col-md-6 pr-md-1"> 
+          <button class=" btn btn-fill btn-danger " (click)="onApproveClose()" type="submit">Close</button>
+          </div></div>
+          <ng-template #elseBlock>
+            <div class=" row">
+            <div class=" col-md-6 pr-md-1"> 
+              <button  class="btn btn-fill btn-danger " (click)="onRemarks()" type="submit">Reject</button>
+              <!-- <button class=" btn btn-fill btn-danger " (click)="onReject()" type="submit">Reject</button> -->
+             
+                </div>
+        <div class=" col-md-6 pr-md-1"> 
+          <button class=" btn btn-fill btn-danger " (click)="onApprove()" type="submit">Approve</button>
+         
+            </div>
+          </div>
+        </ng-template>
+        </form> 
+
+    
+
+</div><!--card end-->  
+        <!-- <div class=" card-footer">
+          <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+        </div> -->
+      </div>
+    </div>
+    
+  </div>
+</div> <!-- content end-->
+
+
+
+

@@ -1,0 +1,42 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-heade text-center bg-warning text-white center">
+          <h4 class=" card-title">Dealer Save Data List </h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Dealer ID</th>
+                  <th>Dealer Name</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pd of saveDataList">
+                  <td>
+                    <!-- <a [routerLink]="['viewpage']" (click)="getViewID({{pd}})">
+                    {{pd}}
+                  </a> -->
+                  <!-- <button class=" btn btn-fill bg-warning" (click)="getViewID($event)" id="{{pd.dealerId}}" [routerLink]="['/viewpage']">{{pd.dealerId}}</button>
+                 -->
+                 <a  (click)="getDealerID($event)" id="{{pd.dealerId}}" [routerLink]="['/registration-form']">{{pd.dealerId}}</a>
+                
+                </td>
+                  <td>{{pd.dealerName}}</td>
+                  
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
